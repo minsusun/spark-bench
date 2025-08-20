@@ -28,7 +28,6 @@ object Formats {
   val parquet = "parquet"
   val csv = "csv"
   val orc = "orc"
-  val avro = "avro"
   val json = "json"
   val console = "console"
 }
