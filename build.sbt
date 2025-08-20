@@ -20,7 +20,7 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption.REPLACE_EXISTING
 
-scalaVersion in ThisBuild := "2.11.8"
+scalaVersion in ThisBuild := "2.12.10"
 
 /*
     **********************************************************************************
@@ -85,7 +85,9 @@ lazy val cli = project
     libraryDependencies ++= otherCompileDeps,
     libraryDependencies ++= testDeps,
     libraryDependencies ++= typesafe,
-    libraryDependencies ++= breezeDeps
+    libraryDependencies ++= breezeDeps,
+    libraryDependencies += "org.slf4j" % "slf4j-simple" % "1.7.25",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
   )
   .dependsOn(utils % "compile->compile;test->test")
   .aggregate(utils)
@@ -95,7 +97,8 @@ lazy val `test-workloads` = project
     commonSettings,
     name := "test-workloads",
     libraryDependencies ++= sparkDeps,
-    libraryDependencies ++= testDeps
+    libraryDependencies ++= testDeps,
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
   )
   .dependsOn(utils % "compile->compile;test->test", cli % "compile->compile")
 
@@ -137,7 +140,9 @@ lazy val `spark-launch` = project
     libraryDependencies ++= otherCompileDeps,
     libraryDependencies ++= testDeps,
     libraryDependencies ++= typesafe,
-    libraryDependencies ++= jsonCreation
+    libraryDependencies ++= jsonCreation,
+    libraryDependencies += "org.slf4j" % "slf4j-simple" % "1.7.25",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
   )
   .dependsOn(utils % "compile->compile;test->test", cli % "compile->compile;test->test")
 
