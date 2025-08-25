@@ -57,6 +57,7 @@ object SparkFuncs {
       case Formats.orc => true
       case Formats.json => true
       case Formats.console => true
+      case Formats.txt => true
       case _ => false
     }
   }

@@ -30,4 +30,5 @@ object Formats {
   val orc = "orc"
   val json = "json"
   val console = "console"
+  val txt = "txt"
 }
